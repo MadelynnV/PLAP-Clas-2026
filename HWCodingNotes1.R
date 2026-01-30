@@ -119,6 +119,6 @@ csv <- read.csv("pathway to your file")
 view(csv)
 str(csv)
 
-git add HWCodingNotes1.R .gitignore PLAP-Class-2026.Rprojgit
+git add HWCodingNotes1.R .gitignore PLAP-Class-2026.Rproj
 git commit -m "Update HWCodingNotes1"
 git push
