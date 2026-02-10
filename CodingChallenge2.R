@@ -39,7 +39,7 @@
 # 2. 4 pts. Make a boxplot using ggplot with DON as the y variable, treatment as the x
 #variable, and color mapped to the wheat cultivar. Change the y label to “DON (ppm)” and make the x label blank.
 Mycotoxin <- read.csv("MycotoxinData.csv")
-
+Mycotoxin$DON <- as.numeric(Mycotoxin$DON)
 ggplot(data = Mycotoxin, aes(x = Treatment, y = DON, fill = Cultivar)) +
   geom_boxplot(color = "black") +
   ylab("DON (ppm)") +
@@ -84,7 +84,7 @@ ggplot(Mycotoxin, aes(x = Treatment, y = DON, fill = Cultivar)) +
     stat_summary(fun = mean, geom = "col", position = position_dodge(0.9)) + 
     stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2, position = position_dodge(0.9)) +
     geom_point(aes(fill = Cultivar), position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.9), shape = 21, color = "black") +
-    facet_wrap(~Cultivar)
+    facet_wrap(~Cultivar) +
     xlab("Treatment") +
     ylab("DON (ppm)")
   
@@ -95,7 +95,7 @@ ggplot(Mycotoxin, aes(x = Treatment, y = DON, fill = Cultivar)) +
     ggplot(Mycotoxin, aes(x = Treatment, y = DON, fill = Cultivar)) +
       geom_boxplot(color = "black") +
       geom_point(aes(fill = Cultivar), position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), shape = 21, color = "black") +
-      geom_point(aes(fill = Cultivar), position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), shape = 21, color = "black", alpha = 0.6)
+      geom_point(aes(fill = Cultivar), position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.75), shape = 21, color = "black", alpha = 0.6) +
       facet_wrap(~Cultivar)+
       ylab("DON (ppm)") +
       xlab("") +
@@ -106,8 +106,8 @@ ggplot(Mycotoxin, aes(x = Treatment, y = DON, fill = Cultivar)) +
         stat_summary(fun = mean, geom = "col", position = position_dodge(0.9)) + 
         stat_summary(fun.data = mean_se, geom = "errorbar", width = 0.2, position = position_dodge(0.9)) +
         geom_point(aes(fill = Cultivar), position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.9), shape = 21, color = "black") +
-        geom_point(aes(fill = Cultivar), position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.9), shape = 21, color = "black", alpha = 0.5)
-        facet_wrap(~Cultivar)
+        geom_point(aes(fill = Cultivar), position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.9), shape = 21, color = "black", alpha = 0.5) +
+        facet_wrap(~Cultivar) +
         xlab("Treatment") +
         ylab("DON (ppm)") +
         theme_bw()
