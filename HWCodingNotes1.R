@@ -87,11 +87,11 @@ mat1[1] # should give you 1 the first number in col 1
 df <- data.frame(mat1[,1], mat2[,1]) # created a dataframe with the first col of mat 1 and mat2 and all rows 
 df 
 
-#to change the colum headers of the dataframe
+#to change the column headers of the data frame
 colnames(df) <- c("value", "name")
 df
 
-df$value[1] # use $ to access colums 
+df$value[1] # use $ to access columns 
 #indexing - subsetting 
 
 df$value[df$name == "jill" ] # returns with 2 
@@ -99,7 +99,7 @@ df$value[df$name == "jill" ] # returns with 2
 df[df$name == "jill", ] # all returns all rows 
 subset (df, name == "jill") # same thing as above
 
-#create new column with the name "log_value" and this colum is the log of the value column
+#create new column with the name "log_value" and this column is the log of the value column
 df$log_value <- log(df$value)
 
 
@@ -119,6 +119,6 @@ csv <- read.csv("pathway to your file")
 view(csv)
 str(csv)
 
-git add HWCodingNotes1.R .gitignore PLAP-Class-2026.Rproj
-git commit -m "Update HWCodingNotes1"
-git push
+#git add HWCodingNotes1.R .gitignore PLAP-Class-2026.Rproj
+#git commit -m "Update HWCodingNotes1"
+#git push
