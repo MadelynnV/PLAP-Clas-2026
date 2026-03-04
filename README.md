@@ -4,6 +4,7 @@ Class Notes:
 - ClassNoes.R Link: <https://github.com/MadelynnV/PLAP-Clas-2026/blob/main/ClassNotes.R>
 - VisualizationNotes2.R Link: <https://github.com/MadelynnV/PLAP-Clas-2026/blob/main/VisualizationNotes2.R>
 - CodingNotesMarkdown.Rmd Link: <https://github.com/MadelynnV/PLAP-Clas-2026/blob/main/CodingNotesMarkdown.Rmd>
+- DataWranglingNotes.Rmd Link: <https://github.com/MadelynnV/PLAP-Clas-2026/blob/main/DataWranglingNotes.Rmd>
 
 Coding Challenge:
 - CodingChallenge1: Link: <https://github.com/MadelynnV/PLAP-Clas-2026/blob/main/CodingChallenge1.R>
@@ -20,6 +21,7 @@ PlAP-Clas-2026
 |- ClassNoes.R
 |- VisualizationNotes2.R
 |- CodingNotesMarkdown.Rmd
+|- DataWranglingNotes.Rmd
 |- CodingChallenge1:
 |- CodingChallenge2:
 |- CodingChallenge3:
