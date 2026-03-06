@@ -1,0 +1,137 @@
+---
+title: "Coding Challenge 4 - Markdown" 
+author: "Madelynn VanderHoek" 
+date: "2026-02-19" 
+output: 
+  html_document: 
+    toc: TRUE
+  md_document:
+---
+
+[Data-Mycotoxin.csv-i. Noel, Z.A., Roze, L.V., Breunig, M., Trail, F. 2022.Endophytic fungi as promising biocontrol agent to protect wheat from Fusarium graminearum head blight. Plant Disease.](https://doi.org/10.1094/PDIS-06-21-1253-RE)
+
+## Coding Challenge 4
+
+### Question 1
+
+Explain the following
+
+a.  YAML header: Is the section at the top of the Rmarkdown document that contains metadata including the title, author(s), date, and output formats.
+b.  Literate programming: is an approach to data analysis that ensures reproducibility and readability to combine code with descriptive notes that able the reader to reformat for there specific code/topic.
+
+### Question 2
+
+Take the code you wrote for coding challenge 3, question 5, and incorporate it into your R markdown file. Some of you have already been doing this, which is great! Your final R markdown file should have the following elements.
+
+a.  At the top of the document, make a clickable link to the manuscript where these data are published. The link is here:
+b.  Noel, Z.A., Roze, L.V., Breunig, M., Trail, F. 2022.Endophytic fungi as promising biocontrol agent to protect wheat from Fusarium graminearum head blight. Plant Disease. <https://doi.org/10.1094/PDIS-06-21-1253-RE>
+c.  Read the data using a relative file path with na.strings option set to “na”. This means you need to put the Mycotoxin.csv file we have used for the past two weeks into your directory, which git tracks.
+d.  Make a separate code chunk for the figures plotting the DON data, 15ADON, and Seedmass, and one for the three combined using ggarrange.
+
+##### Reading in the data
+
+```{r}
+Mycotoxin <- read.csv("MycotoxinData.csv", na.strings = "na")
+str(Mycotoxin)
+
+library(ggplot2)
+library(tidyverse)
+library(ggrepel)
+library(ggpubr)
+```
+
+##### DON data code section
+
+```{r}
+cbbPalette <- c("#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7")
+
+DONbyTreatment <- ggplot(Mycotoxin, aes(x = Treatment, y = DON, color = Cultivar, fill = Cultivar)) +
+  geom_boxplot(position = position_dodge()) +
+  geom_point(position = position_jitterdodge(0.6)) +
+  ylab("DON (ppm)") +
+  xlab("Treatment") +
+  scale_color_manual(values = c(cbbPalette[[1]], cbbPalette[[1]])) +
+  scale_fill_manual(values = c(cbbPalette[[3]], cbbPalette[[4]])) +
+  theme_classic() +
+  facet_wrap(~Cultivar)
+DONbyTreatment
+
+DONbyTreatmentt.test <- DONbyTreatment +
+  geom_pwc(aes(group = Treatment), method = "t_test", label = "{p.adj.format}{p.adj.signif}")
+DONbyTreatmentt.test
+```
+
+##### Seed Mass data code section
+
+```{r}
+MassperSeed_mgbyTreatment <- ggplot(Mycotoxin, aes(x = Treatment, y = MassperSeed_mg, color = Cultivar, fill = Cultivar)) +
+  geom_boxplot(position = position_dodge()) +
+  geom_point(position = position_jitterdodge(0.6)) +
+  ylab("Seed Mass (mg)") +
+  xlab("Treatment") +
+  scale_color_manual(values = c(cbbPalette[[1]], cbbPalette[[1]])) +
+  scale_fill_manual(values = c(cbbPalette[[3]], cbbPalette[[4]])) +
+  theme_classic() +
+  facet_wrap(~Cultivar)
+MassperSeed_mgbyTreatment
+
+MassperSeed_mgbyTreatmentt.test <- MassperSeed_mgbyTreatment +
+  geom_pwc(aes(group = Treatment), method = "t_test", label = "{p.adj.format}{p.adj.signif}")
+MassperSeed_mgbyTreatmentt.test
+```
+
+##### X15ADON data code section
+
+```{r}
+X15ADONbyTreatment <- ggplot(Mycotoxin, aes(x = Treatment, y = X15ADON, color = Cultivar, fill = Cultivar)) +
+  geom_boxplot(position = position_dodge()) +
+  geom_point(position = position_jitterdodge(0.6)) +
+  ylab("X15ADON (ppm)") +
+  xlab("Treatment") +
+  scale_color_manual(values = c(cbbPalette[[1]], cbbPalette[[1]])) +
+  scale_fill_manual(values = c(cbbPalette[[3]], cbbPalette[[4]])) +
+  theme_classic() +
+  facet_wrap(~Cultivar)
+X15ADONbyTreatment
+
+X15ADONbyTreatmentt.test <- X15ADONbyTreatment +
+  geom_pwc(aes(group = Treatment), method = "t_test", label = "{p.adj.format}{p.adj.signif}")
+X15ADONbyTreatmentt.test
+```
+
+##### Combined plot of DON, Seed Mass, and X15ADON
+
+```{r}
+DON_X15ADON_MassperSeed_t.test <- ggarrange(
+  DONbyTreatmentt.test, 
+  X15ADONbyTreatmentt.test, 
+  MassperSeed_mgbyTreatmentt.test, 
+  labels = "auto", 
+  nrow = 3, 
+  ncol = 1, 
+  common.legend = T
+)
+DON_X15ADON_MassperSeed_t.test
+```
+
+### Question 3
+
+Knit your document together in the following formats:
+
+a.  Choose one format: .docx (word document), .pdf, or .html. Make sure it includes a table of contents
+b.  GitHub flavored markdown (.md file).
+
+### Question 4
+
+Push the .docx or .pdf and .md files to GitHub inside a directory called Coding Challenge 4.
+
+### Question 5
+
+Now edit, commit, and push the README file for your repository and include the following elements.
+
+a.  A clickable link in your README to your GitHub flavored .md file
+b.  A file tree of your GitHub repository.
+
+### Question 6
+
+Please turn in the file generated in question 3a to canvas with a clickable link to your GitHub repository within the document.
