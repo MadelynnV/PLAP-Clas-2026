@@ -1,0 +1,76 @@
+---
+title: "Coding Challenge 6 - Iterations and Functions"
+author: "Madelynn VanderHoek"
+date: "`r Sys.Date()`"
+output: 
+    html_document:
+       toc: TRUE
+    md_document: 
+---
+
+# Question 1  
+
+Regarding reproducibility, what is the main point of writing your own functions and iterations?
+
+Answer: Writing your own functions ables code consistencys and reduces copy and pasting errors from others to reuse. 
+
+# Question 2 
+
+Conceptual: In your own words, describe: In your answer, be specific about: basic syntax, where the code is written, and how results are returned or stored. (Answer in plain text; no code required for this question.)
+
+    a. how to write a function in R 
+    Answer: The stuctrue includes using the function() package follwed by an one or mutiple arguments in parnetheses and the code enclosed in curly brakets. The code enclosed in the curly brakets are what operation you want carried out based on the argument in the parnetheses. 
+    
+    b. how to write a for loop in R. 
+    Answer: A for loop use the basic structure of for(variables listed in your desidred sequence) followed by curly brakets that contains the code to you want to be executed for each variable listed in the parentheses. 
+    
+# Question 3 
+
+Read in the Cities.csv file from Canvas using a relative file path.
+
+This dataset contains the population and coordinates (latitude and longitude) of the 40 most populous cities in the US, along with Auburn, AL. Your task is to create a function that calculates the distance between Auburn and each other city using the Haversine formula. To do this, you'll write a for loop that goes through each city in the dataset and computes the distance from Auburn. Detailed steps are provided below.
+
+```{r}
+Cities <- read.csv("Cities.csv")
+```
+
+
+# Question 4
+Function writing: Write a function that calculates the distance (in kilometers)
+between two pairs of geographic coordinates using the Haversine formula.
+    a. Function requirements:
+        i. Inputs: lat1, lon1, lat2, lon2
+        ii. The function must return a single numeric value called distance_km
+        iii. All code shown below must be placed inside the function body
+        
+        
+# Question 5 
+Using your function from question 4, calculate the distance between Auburn, AL
+and New York City.
+    a. Subset or extract only the latitude and longitude values needed from Cities.csv
+    b. Pass those values into your function
+    c. Store the result in an object
+    
+   -  The expected output is 1367.854 km (small rounding differences are acceptable).
+   
+   
+# Question 6 
+Use your distance function inside a for loop to calculate the distance between
+Auburn, AL and every other city in Cities.csv. Each iteration should calculate the
+distance for one city. (The first 9 distances printed should match the example file)
+
+        
+        
+# Question 7 
+odify your loop so that each iteration appends one new row to a dataframe with
+the following columns: (The dataframe should grow inside the loop, and the first six rows should look like this)
+
+    a. City1 (the other city)
+    b. City2 (Auburn)
+    c. Distance_km
+
+# Question 8 
+Commit and push a gfm .md file to GitHub inside a directory called Coding
+Challenge 6. Provide me a link to your github written as a clickable link in your rendered .pdf, .docx, or .html
+        
+        
