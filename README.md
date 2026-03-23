@@ -1,7 +1,9 @@
+
 File Tree:
 
 ```         
 ├── Bull_richness.csv
+├── Cities.csv
 ├── ClassNotes
 │   ├── ClassNotes.R
 │   ├── CodingNotesMarkdown_folder
@@ -11,6 +13,10 @@ File Tree:
 │   │   ├── DataWranglingNotes.Rmd
 │   │   └── DataWranglingNotes.html
 │   ├── HWCodingNotes1.R
+│   ├── LoopsAndFunctions_folder
+│   │   ├── EC50_all.csv
+│   │   ├── LoopsAndFunctionsNotes.Rmd
+│   │   └── LoopsAndFunctionsNotes.html
 │   └── VisualizationNotes2.R
 ├── CodingChallenge1.R
 ├── CodingChallenge2.R
@@ -18,10 +24,15 @@ File Tree:
 ├── CodingChallenge4
 │   ├── CodingChallenge4.Rmd
 │   └── CodingChallenge4.html
-├── CodingChallenge5 
+├── CodingChallenge5
 │   ├── CodingChallenge5.Rmd
+│   ├── CodingChallenge5.html
 │   ├── DiversityData.csv
 │   └── Metadata.csv
+├── CodingChallenge6
+│   ├── Cities.csv
+│   ├── CodingChallenge6.Rmd
+│   └── CodingChallenge6.html
 ├── MycotoxinData.csv
 ├── PLAP-Class-2026.Rproj
 └── README.md
