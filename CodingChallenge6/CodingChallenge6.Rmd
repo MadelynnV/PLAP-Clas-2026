@@ -30,10 +30,11 @@ Read in the Cities.csv file from Canvas using a relative file path.
 
 This dataset contains the population and coordinates (latitude and longitude) of the 40 most populous cities in the US, along with Auburn, AL. Your task is to create a function that calculates the distance between Auburn and each other city using the Haversine formula. To do this, you'll write a for loop that goes through each city in the dataset and computes the distance from Auburn. Detailed steps are provided below.
 
+[Cities Dataset](https://github.com/MadelynnV/PLAP-Clas-2026/blob/main/CodingChallenge6/Cities.csv)
+
 ```{r}
 Cities <- read.csv("Cities.csv")
 ```
-
 
 # Question 4
 Function writing: Write a function that calculates the distance (in kilometers)
@@ -42,7 +43,25 @@ between two pairs of geographic coordinates using the Haversine formula.
         i. Inputs: lat1, lon1, lat2, lon2
         ii. The function must return a single numeric value called distance_km
         iii. All code shown below must be placed inside the function body
-        
+      
+```{r}
+
+Question4 <- function(lat1, lon1, lat2, lon2){
+  rad.lat1 <- lat1 * pi/180
+  rad.lon1 <- lon1 * pi/180
+  rad.lat2 <- lat2 * pi/180
+  rad.lon2 <- lon2 * pi/180
+  delta_lat <- rad.lat2 - rad.lat1
+  delta_lon <- rad.lon2 - rad.lon1
+  a <- sin(delta_lat / 2)^2 + cos(rad.lat1) * cos(rad.lat2) * sin(delta_lon / 2)^2
+  c <- 2 * asin(sqrt(a))
+  earth_radius <- 6378137
+  distance_km <- (earth_radius * c)/1000
+  return(distance_km)
+}
+  
+```
+  
         
 # Question 5 
 Using your function from question 4, calculate the distance between Auburn, AL
@@ -52,6 +71,20 @@ and New York City.
     c. Store the result in an object
     
    -  The expected output is 1367.854 km (small rounding differences are acceptable).
+
+```{r}
+auburn <- subset(Cities, city == "Auburn")
+auburn_coords <- c(auburn$lat, auburn$lon)
+auburn_coords
+
+nyc <- subset(Cities, city == "New York")
+nyc_coords <- c(nyc$lat, nyc$lon)
+nyc_coords
+
+Question5 <- Question4(auburn_coords[1], auburn_coords[2], nyc_coords[1], nyc_coords[2])
+
+Question5
+```
    
    
 # Question 6 
@@ -59,18 +92,59 @@ Use your distance function inside a for loop to calculate the distance between
 Auburn, AL and every other city in Cities.csv. Each iteration should calculate the
 distance for one city. (The first 9 distances printed should match the example file)
 
-        
+```{r}
+
+distances <- numeric(nrow(Cities))
+
+for (i in 1:nrow(Cities)) {
+  lat2 <- Cities$lat[i]
+  lon2 <- Cities$lon[i]
+  distances[i] <- Question4(32.6087, -85.4903, lat2, lon2)
+}
+
+head(distances, 9)
+```
+       
         
 # Question 7 
-odify your loop so that each iteration appends one new row to a dataframe with
+Modify your loop so that each iteration appends one new row to a dataframe with
 the following columns: (The dataframe should grow inside the loop, and the first six rows should look like this)
 
     a. City1 (the other city)
     b. City2 (Auburn)
     c. Distance_km
 
+```{r}
+
+
+city_distance <- NULL
+
+locations <- Cities$city
+locations
+
+for (i in seq_along(locations)) {
+  
+  lat2 <- Cities$lat[i]
+  lon2 <- Cities$lon[i]
+  
+  dist_km <- Question4(32.6087, -85.4903, lat2, lon2)
+  
+  new_row <- data.frame(
+    City1 = locations[i],
+    City2 = "Auburn",
+    Distance_km = dist_km
+  )
+  
+  city_distance <- rbind.data.frame(city_distance, new_row)
+}
+
+head(city_distance)
+```
+
+
 # Question 8 
 Commit and push a gfm .md file to GitHub inside a directory called Coding
 Challenge 6. Provide me a link to your github written as a clickable link in your rendered .pdf, .docx, or .html
-        
+
+[CodingChallenge6 Folder GitHub Link](https://github.com/MadelynnV/PLAP-Clas-2026/tree/main/CodingChallenge6)     
         
