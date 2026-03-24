@@ -149,7 +149,7 @@ Now if we have a categorical x variable and a continuous y variable we would per
 
 Load the fungicide study bull richness data set from previous notes for this example: 
 ```{r}
-bull.rich <- read.csv("/Users/madelynnvanderhoek/Desktop/PLPA_Class/PLAP-Class-2026/Bull_richness.csv")
+bull.rich <- read.csv("Bull_richness.csv")
 ```
 
 Filter our data set to include one treatment and growth stage for demonstration of a t-test.
@@ -335,7 +335,7 @@ summary(lme1)
 For some terms, it actually makes the standard error of our betas go down, which means we have better estimates of our betas, and we are more confident that we are estimating them correctly in our linear models, which means we have more power to detect differences.
 
 
-[Link to LinearModelsNotes on GitHub]()
+[Link to LinearModelsNotes on GitHub](https://github.com/MadelynnV/PLAP-Clas-2026/tree/main/ClassNotes/LinearModels_folder)
 
 
 
