@@ -2,7 +2,6 @@
 File Tree:
 
 ```         
-├── Bull_richness.csv
 ├── Cities.csv
 ├── ClassNotes
 │   ├── ClassNotes.R
@@ -13,6 +12,10 @@ File Tree:
 │   │   ├── DataWranglingNotes.Rmd
 │   │   └── DataWranglingNotes.html
 │   ├── HWCodingNotes1.R
+│   ├── LinearModels_folder
+│   │   ├── Bull_richness.csv
+│   │   ├── NotesLinearModels.Rmd
+│   │   └── NotesLinearModels.html
 │   ├── LoopsAndFunctions_folder
 │   │   ├── EC50_all.csv
 │   │   ├── LoopsAndFunctionsNotes.Rmd
@@ -33,6 +36,7 @@ File Tree:
 │   ├── Cities.csv
 │   ├── CodingChallenge6.Rmd
 │   └── CodingChallenge6.html
+├── CodingChallenge7
 ├── MycotoxinData.csv
 ├── PLAP-Class-2026.Rproj
 └── README.md
