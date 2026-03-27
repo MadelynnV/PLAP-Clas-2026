@@ -3,9 +3,9 @@ title: "Coding Challenge 7"
 author: "Madelynn VanderHoek"
 date: "`r Sys.Date()`"
 output: 
-  html_document:
-    toc: TRUE
-  github_document:  
+    html_document:
+      toc: TRUE
+    github_document:
 ---
 
 # Coding Challenge 7 - 3/26/2026
@@ -62,7 +62,9 @@ anova(Question2_simple)
 ```
 
 Results:
+
 -   The intercept (182.163) represents the expected emergence for Treatment 1 at day 0 of DaysAfterPlanting  
+
 -   The coefficient for Treatment 2 (-134.531) indicates that emergence is, on average 134.5 units lower then treatment 1 with DaysAfterPlanting being constant. 
 
 ## Question 4. 
@@ -79,10 +81,16 @@ cld_results
 ```
 
 *Results:* 
+
 -   Treatment 2 has significantly lower emergence than all other treatment groups. 
+
 -   Treatment 7 has high emergence then treatment 2, but is lower than the top-performing treatment and significantly different from both the lowest and the highest group of emergence. 
+
 -   Treatments 1, 4, 8, and 9 are not significant different from either treatment 7 or the highest emergence group. 
+
 -   Treatments 3, 5, and 6 have the highest emergence but are not significantly different from treatments 1, 4, 8, and 9. 
+
+
 
 ## Question 5. 
 The provided function lets you dynamically add a linear model plus one factor from
@@ -130,9 +138,13 @@ plot_cldbars_onefactor(Question2_simple, "Treatment")
 ```
 
 Results: 
+
 -   Letter 'a' includes treatments 3, 5, and 6 are have the highest emergence but are not significantly different between group 'ab' 
+
 -   Letters 'ab' mean treatment 1, 4, 8 and 9 are not significantly different from each group a and group b as they share similar components of both groups. 
+
 -   Letter 'b' includes treatment 7 that has the a intermediate level of emergence and is significant lower then group a and higher then group c. 
+
 -   Letter 'c' includes treatment 2 that has the significantly  lowest level of emergence compared to groups a and b. 
 
 ## Question 6. 
