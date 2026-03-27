@@ -139,7 +139,7 @@ Results:
 Generate the gfm .md file along with a .html, .docx, or .pdf. Commit, and push the
 .md file to github and turn in the .html, .docx, or .pdf to Canvas. Provide me a link here to your github.
 
-[Link to CodingChallenge7 folder on GitHub]()
+[Link to CodingChallenge7 folder on GitHub](https://github.com/MadelynnV/PLAP-Clas-2026/tree/main/CodingChallenge7)
 
 
 
