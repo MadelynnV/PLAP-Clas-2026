@@ -37,6 +37,11 @@ File Tree:
 │   ├── CodingChallenge6.Rmd
 │   └── CodingChallenge6.html
 ├── CodingChallenge7
+│   ├── CodingChallenge7.Rmd
+│   ├── CodingChallenge7.html
+│   ├── CodingChallenge7.md
+│   ├── PlantEmergence.csv
+│   └── unnamed-chunk-6-1.png
 ├── MycotoxinData.csv
 ├── PLAP-Class-2026.Rproj
 └── README.md
